@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "952dc2650f2dfc97b02f67ffb093b792",
+    "content-hash": "bbed77ab34fffde29fcbe2bb129066ae",
     "packages": [
         {
             "name": "chillerlan/php-qrcode",
@@ -5749,8 +5749,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "symfony/lts": 20,
-        "chillerlan/php-qrcode": 20
+        "chillerlan/php-qrcode": 20,
+        "symfony/lts": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
