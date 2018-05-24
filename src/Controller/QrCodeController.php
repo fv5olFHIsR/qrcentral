@@ -32,11 +32,12 @@ class QrCodeController extends Controller
 
         //var_dump($qrcode);
         //die;
+        //$QrDb->writeQrCode() to create a new code
         $QrDb=new QrDatabseManager($em);
         return $this->render('qr_code/index.html.twig', [
             'controller_name' => 'QrCodeController',
             'qrCodes' => $QrDb->getQrCodes(),
-            'write' => $QrDb->writeQrCode(),
+            'user' => $this->getUser()->getRoles(),
             'qrcode'=> $qrcode->render($qrdata),
         ]);
     }

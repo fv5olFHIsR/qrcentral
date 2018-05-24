@@ -1,12 +1,26 @@
 security:
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         in_memory: { memory: ~ }
+        user_db_provider:
+            entity:
+                class: App\Entity\User
+                property: username
+                #manager_name: user
+                # if you're using multiple entity managers
+                # manager_name: customer    
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            pattern:    ^/
+            http_basic: ~
+            provider: user_db_provider
             anonymous: ~
             form_login:
                 login_path: login
@@ -24,3 +38,4 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/qr/code, roles: ROLE_USER }
+         - { path: ^/admin, roles: ROLE_USER }

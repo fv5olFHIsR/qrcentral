@@ -15,7 +15,7 @@
     <ul>
         {% for code in qrCodes if qrCodes %}
             <li>{{ code.id }}) {{ code.creator }} - {{ code.name }}</li>
-            <li>{{write}}</li>
+            <li>{{dump(user)}}</li>
         {% else %}
             <li>No codes found</li>
         {% endfor %}
