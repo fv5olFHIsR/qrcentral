@@ -1,4 +1,10 @@
 {
+    "chillerlan/php-qrcode": {
+        "version": "dev-master"
+    },
+    "chillerlan/php-traits": {
+        "version": "1.1.12"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {

@@ -19,7 +19,7 @@
         {% else %}
             <li>No codes found</li>
         {% endfor %}
-
+            <li>{{qrcode | raw}}</li>
         <li>Your controller at <code><a href="{{ 'src/Controller/QrCodeController.php'|file_link(0) }}">src/Controller/QrCodeController.php</a></code></li>
         <li>Your template at <code><a href="{{ 'templates/qr_code/index.html.twig'|file_link(0) }}">templates/qr_code/index.html.twig</a></code></li>
     </ul>

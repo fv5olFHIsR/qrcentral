@@ -23,7 +23,8 @@
         "symfony/validator": "^4.0",
         "symfony/web-link": "^4.0",
         "symfony/webpack-encore-pack": "*",
-        "symfony/yaml": "^4.0"
+        "symfony/yaml": "^4.0",
+        "chillerlan/php-qrcode": "dev-master"
     },
     "require-dev": {
         "symfony/browser-kit": "^4.0",
@@ -76,4 +77,5 @@
             "allow-contrib": false
         }
     }
+    
 }
