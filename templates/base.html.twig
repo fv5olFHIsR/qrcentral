@@ -1,12 +1,83 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Mobland - Mobile App Landing Page Template">
+        <meta name="keywords" content="HTML5, bootstrap, mobile, app, landing, ios, android, responsive">
+
+        <!-- Font -->
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ asset('build/css/bootstrap.css') }}">
+        <!-- Themify Icons -->
+        <link rel="stylesheet" href="{{ asset('build/css/themify.css') }}">
+        <!-- Owl carousel -->
+        <link rel="stylesheet" href="{{ asset('build/css/owl.carousel.css') }}">
+        <!-- Main css -->
+        <link href="{{ asset('build/css/style.css') }}" rel="stylesheet">
+
         {% block stylesheets %}{% endblock %}
+
+        <meta charset="UTF-8">
+        
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+    <body data-spy="scroll" data-target="#navbar" data-offset="30">
+
+      <div class="nav-menu fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-dark navbar-expand-lg">
+                        <a class="navbar-brand" href="{{ path('home') }}"><img src="build/images/logo.png" class="img-fluid" alt="logo"></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                        <div class="collapse navbar-collapse" id="navbar">
+                            <ul class="navbar-nav ml-auto">
+                                
+                                {% block menus %}{% endblock %}
+
+                                
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+     {% block body %}{% endblock %}
+
+     <!-- // end .section -->
+    <footer class="my-5 text-center">
+        <!-- Copyright removal is not prohibited! -->
+        <p class="mb-2"><small>COPYRIGHT © 2017. ALL RIGHTS RESERVED. MOBAPP TEMPLATE BY <a href="https://colorlib.com">COLORLIB</a></small></p>
+
+        <small>
+            <a href="#" class="m-2">PRESS</a>
+            <a href="#" class="m-2">TERMS</a>
+            <a href="#" class="m-2">PRIVACY</a>
+        </small>
+    </footer>
+
+  
+
+    <!-- jQuery and Bootstrap -->
+    <!--<script src="{{ asset('build/js/jquery.js') }}"></script>-->
+   
+    <script src="{{ asset('build/js/bootstrap.js') }}"></script>
+    <!-- Plugins JS -->
+    <script src="{{ asset('build/js/owl.carousel.js') }}"></script>
+    <!-- Custom JS -->
+    <script src="{{ asset('build/js/script.js') }}"></script>
+
+     {% block javascripts %}{% endblock %}
+</body>
+
 </html>

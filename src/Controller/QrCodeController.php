@@ -30,14 +30,20 @@ class QrCodeController extends Controller
         $qrdata='https://google.com';
         
 
+        if($this->getUser()){
+            $user_role=$this->getUser()->getRoles();
+        }
+        else{
+            $user_role="Not logged in";
+        }
         //var_dump($qrcode);
         //die;
         //$QrDb->writeQrCode() to create a new code
         $QrDb=new QrDatabseManager($em);
-        return $this->render('qr_code/index.html.twig', [
-            'controller_name' => 'QrCodeController',
+        return $this->render('dashboard/index.html.twig', [
+            'controller_name' => 'QrCodsseController',
             'qrCodes' => $QrDb->getQrCodes(),
-            'user' => $this->getUser()->getRoles(),
+            'user' => $user_role,
             'qrcode'=> $qrcode->render($qrdata),
         ]);
     }

@@ -1,22 +1,51 @@
 {# templates/security/login.html.twig #}
 {# ... you will probably extend your base template, like base.html.twig #}
+{% extends 'base.html.twig' %}
 
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
+{% block title %} QRCentral Login! {% endblock %}
 
-<form action="{{ path('login') }}" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+{% block menus %}
+    <li class="nav-item"> <a class="nav-link active" href="{{ path('home') }}">HOME <span class="sr-only">(current)</span></a> </li>
+    <li class="nav-item"><a href="{{ path('user_registration') }}" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Create Account</a></li>
+{% endblock %}
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="_password" />
 
-    {#
-        If you want to control the URL the user
-        is redirected to on success (more details below)
-        <input type="hidden" name="_target_path" value="/account" />
-    #}
+{% block body %}
+<header class="bg-gradient" id="home">
+   
+</header>
 
-    <button type="submit">login</button>
-</form>
+    <div class="card formcard">
+        <div class="card-body">
+
+            {% if app.user %}
+                <div>Already Logged In</div><br/>
+                <a href="{{ path('logout') }}">Click here to Logout</a>
+            {% else %}
+                <form action="{{ path('login') }}" method="post">
+
+                    {% if error %}
+                        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    <label for="username">Email:</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="_password" />
+
+                    {#
+                        If you want to control the URL the user
+                        is redirected to on success (more details below)
+                        <input type="hidden" name="_target_path" value="/account" />
+                    #}
+                    <br/>
+                    <button type="submit" class="btn btn-primary" style="cursor:pointer;">Login</button>
+                    <br/>
+                    <a href="{{ path('user_registration') }}">Create Account</a>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

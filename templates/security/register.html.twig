@@ -1,10 +1,41 @@
 {# templates/registration/register.html.twig #}
 
-{{ form_start(form) }}
-    {{ form_row(form.username) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.plainPassword.first) }}
-    {{ form_row(form.plainPassword.second) }}
 
-    <button type="submit">Register!</button>
-{{ form_end(form) }}
+{# templates/security/login.html.twig #}
+{# ... you will probably extend your base template, like base.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block menus %}
+    <li class="nav-item"> <a class="nav-link active" href="{{ path('home') }}">HOME <span class="sr-only">(current)</span></a> </li>
+    {% if app.user %}
+        <li class="nav-item"><a href="{{ path('logout') }}" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Logout</a></li>
+    {% else %}
+        <li class="nav-item"><a href="{{ path('login') }}" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Login</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block title %} QRCentral Login! {% endblock %}
+
+{% block body %}
+    <header class="bg-gradient" id="home">
+    </header>
+
+    <div class="card formcard">
+        <div class="card-body">
+           {{ form_start(form) }}
+                {{ form_row(form.username) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.plainPassword.first) }}
+                {{ form_row(form.plainPassword.second) }}
+
+                <button type="submit" class="btn btn-primary">Register!</button>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+

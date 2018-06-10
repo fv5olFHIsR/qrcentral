@@ -9,7 +9,7 @@ security:
         user_db_provider:
             entity:
                 class: App\Entity\User
-                property: username
+                property: email
                 #manager_name: user
                 # if you're using multiple entity managers
                 # manager_name: customer    
@@ -25,6 +25,11 @@ security:
             form_login:
                 login_path: login
                 check_path: login
+                always_use_default_target_path: false
+                default_target_path: /dashboard
+            logout:
+                path:   /logout
+                target: /
             # activate different ways to authenticate
 
             # http_basic: true
@@ -39,3 +44,5 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/qr/code, roles: ROLE_USER }
          - { path: ^/admin, roles: ROLE_USER }
+         - { path: ^/dashbaord, roles: ROLE_USER }
+    
