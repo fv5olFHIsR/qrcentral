@@ -9,7 +9,7 @@ security:
         user_db_provider:
             entity:
                 class: App\Entity\User
-                property: username
+                property: email
                 #manager_name: user
                 # if you're using multiple entity managers
                 # manager_name: customer    

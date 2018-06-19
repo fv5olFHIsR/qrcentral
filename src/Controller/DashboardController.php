@@ -56,7 +56,7 @@ class DashboardController extends Controller
         $request->query->get('status')=="ok" ? 
             $message=array(
                 'title'=>'Success',
-                'text'=>'Your QR Code was successfuly saved'
+                'text'=>'Your QR Code was successfuly saved!'
             )
             :
             $message=array(
