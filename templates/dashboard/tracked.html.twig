@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+
+
+{% block menus %}
+    <li class="nav-item"> <a class="nav-link" href="{{ path('dashboard') }}">QUICK</a> </li>
+    <li class="nav-item"> <a class="nav-link active" href="{{ path('tracked_qr') }}">NEW TRACKED CODE</a> </li>
+    <li class="nav-item"> <a class="nav-link" href="{{ path('qr_analytics') }}">ANALYTICS</a> </li>
+
+    <li class="nav-item"><a href="{{ path('logout') }}" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Logout</a></li>
+
+{% endblock %}
+
+{% block body %}
+    <div class="col-12 col-lg-12">
+    <div class="card qr_tracked_card">
+        <div class="card-body">
+        
+            <h2>Tracked QR Code</h2>
+            
+            <form action="{{ path('save_qr_code') }}" method="POST">
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+
+                        <div class="campaign_selector">
+                            <label for="customSelLabel" class="col-form-label">Campaign</label><br/>
+                            <select class="custom-select" name="campaign" style="width:100%">
+                                <option selected></option>
+                                <option value="new_campaign">(+) Create New Campaign</option>
+                                <option value="2">MyCodes</option>
+                                <option value="3">MTV Music Awards</option>
+                            </select><br/>
+                        </div>
+                        <div class="new_campaign_holder" style="display:none;">
+                            <label for="inputHorizontalSuccess" class="col-form-label">New Campaign Name</label><br/>
+                            <input type="text" class="form-control" id="new_campaign_name" name="new_campaign_name" placeholder="Pizza Delivery QR Promotions">
+                        </div>
+                        <label for="inputHorizontalSuccess" class="col-form-label">Code Name</label><br/>
+                        <input type="text" class="form-control" id="code_name" name="code_name" placeholder="My Qr Code :)">
+                        <label for="inputHorizontalSuccess" class="col-form-label">Code Data</label><br/>
+                        <input type="text" class="form-control" id="qr_link_tracked" name="qr_link" placeholder="https://myWebSite.com">
+                    </div>
+                    <div class="col-md-4">
+                        <div id="qrcodeholder">{{qrcode | raw}}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <br/>
+            <button href="#" id="save_button" value="submit" class="btn btn-primary">Save</button>
+
+            </form>
+
+        </div>
+    </div>
+
+    
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('build/js/qrcodegeneration.js') }}"></script>
+{% endblock %}

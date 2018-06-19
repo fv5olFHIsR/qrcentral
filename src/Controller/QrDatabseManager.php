@@ -15,25 +15,27 @@ class QrDatabseManager
         $this->em = $em;
     }
 
-    function getQrCodes($num = 10){
+    function getQrCodes($username = FALSE, $num = 10){
         $repository =  $this->em->getRepository(QrCode::class);
-        $qrcodes = $repository->findAll();
+        //$qrcodes = $username ? $repository->findOneByCreator(['creator'=> $username]) : $repository->findAll();
+        $qrcodes = $repository->findBy(['creator'=> $username]);
         return($qrcodes);
     }
-    function writeQrCode(){
+    function writeQrCode($username, $codename, $campaign, $qrdata){
         $entityManager = $this->em;
 
-        $QrCodes = new QrCode;
-        $QrCodes->setCreator("Joseph");
-        $QrCodes->setName("FirstQr");
-        $QrCodes->setImage("http://someimage.com");
-        $QrCodes->setViews(0);
+        $QrCode = new QrCode;
+        $QrCode->setCreator($username);
+        $QrCode->setName($codename);
+        $QrCode->setCampaign($campaign);
+        $QrCode->setImage($qrdata);
+        $QrCode->setViews(0);
 
         // tell Doctrine you want to (eventually) save the Product (no queries yet)
-        $entityManager->persist($QrCodes);
-       // actually executes the queries (i.e. the INSERT query)
+        $entityManager->persist($QrCode);
         $entityManager->flush();
-        return("Successfully added");
+       // actually executes the queries (i.e. the INSERT query)
+       return true;
     }
 
 }

@@ -2,20 +2,30 @@
 
 {% block title %}Hello {{ controller_name }}!{% endblock %}
 
+
+
 {% block menus %}
+    <li class="nav-item"> <a class="nav-link active" href="{{ path('dashboard') }}">QUICK</a> </li>
+    <li class="nav-item"> <a class="nav-link" href="{{ path('tracked_qr') }}">NEW TRACKED CODE</a> </li>
+    <li class="nav-item"> <a class="nav-link" href="{{ path('qr_analytics') }}">ANALYTICS</a> </li>
 
     <li class="nav-item"><a href="{{ path('logout') }}" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Logout</a></li>
 
 {% endblock %}
 
 {% block body %}
-<header class="bg-gradient" id="home"></header>
-
-    <div class="card formcard">
+<div class="col-12 col-lg-12">
+    <div class="card qrcard">
         <div class="card-body">
-            {{qrcode | raw}}
+            <h2>Quick QR Code</h2>
+            <input class="form-control" type="text" id="qr_link" placeholder="http://mySite.com"><br/>
+            <div id="qrcodeholder">{{qrcode | raw}}</div>
+            <button href="#" id="download_button" class="btn btn-primary">Download</button>
         </div>
     </div>
-
+</div>
 {% endblock %}
 
+{% block javascripts %}
+<script src="{{ asset('build/js/qrcodegeneration.js') }}"></script>
+{% endblock %}

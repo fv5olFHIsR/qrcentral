@@ -25,9 +25,11 @@ Encore
     .addStyleEntry('css/owl.carousel', './assets/MobApp/css/owl.carousel.min.css')
     .addStyleEntry('css/style', './assets/MobApp/css/style.css')
    //.addEntry('jquery', './assets/MobApp/js/jquery-3.2.1.min.js')
-    .addEntry('js/bootstrap', './assets/MobApp/js/bootstrap.bundle.min.js')
+    //.addEntry('js/bootstrap', './assets/MobApp/js/bootstrap.bundle.min.js')
+    .addEntry('js/bootstrap', "./vendor/twitter/bootstrap/dist/js/bootstrap.js")
     .addEntry('js/owl.carousel', './assets/MobApp/js/owl.carousel.min.js')
     .addEntry('js/script', './assets/MobApp/js/script.js')
+    .addEntry('js/qrcodegeneration', './assets/MobApp/js/qrcodegeneration.js')
     
 
     // uncomment if you use Sass/SCSS files

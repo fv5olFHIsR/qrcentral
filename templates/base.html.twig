@@ -29,12 +29,12 @@
     </head>
     <body data-spy="scroll" data-target="#navbar" data-offset="30">
 
-      <div class="nav-menu fixed-top">
+      <div class="nav-menu fixed-top is-scrolling">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-dark navbar-expand-lg">
-                        <a class="navbar-brand" href="{{ path('home') }}"><img src="build/images/logo.png" class="img-fluid" alt="logo"></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                        <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ asset('build/images/logo.png') }}" class="img-fluid" alt="logo"></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
                         <div class="collapse navbar-collapse" id="navbar">
                             <ul class="navbar-nav ml-auto">
                                 
@@ -50,7 +50,23 @@
     </div>
 
 
+    {% if message is defined %}
+        <div class="col-12 col-lg-12">
+            <div class="card sitemessage">
+                <div class="card-body">
+                    <div class="media">
+                        <span class="ti-face-smile gradient-fill ti-3x mr-3"></span>
+                        <div class="media-body">
+                            <h4 class="card-title">{{ message.title }}</h4>
+                            <p class="card-text">{{ message.text }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
     
+
 
      {% block body %}{% endblock %}
 
@@ -74,8 +90,7 @@
     <script src="{{ asset('build/js/bootstrap.js') }}"></script>
     <!-- Plugins JS -->
     <script src="{{ asset('build/js/owl.carousel.js') }}"></script>
-    <!-- Custom JS -->
-    <script src="{{ asset('build/js/script.js') }}"></script>
+    
 
      {% block javascripts %}{% endblock %}
 </body>

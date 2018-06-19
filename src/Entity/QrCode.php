@@ -36,6 +36,11 @@ class QrCode
      */
     private $views;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $campaign;
+
     public function getId()
     {
         return $this->id;
@@ -62,6 +67,17 @@ class QrCode
     {
         $this->name = $name;
 
+        return $this;
+    }
+
+    public function getCampaign()
+    {
+        return $this->campaign;
+    }
+
+    public function setCampaign($campaign)
+    {
+        $this->campaign = $campaign;
         return $this;
     }
 

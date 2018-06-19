@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}QRCentral - The home of QR{% endblock %}
-
+{% block stylesheets %}<style>body{padding-top:0px;}</style>{% endblock %}
 {% block menus %}
     <li class="nav-item"> <a class="nav-link active" href="{{ path('home') }}">HOME <span class="sr-only">(current)</span></a> </li>
     <li class="nav-item"> <a class="nav-link" href="#features">FEATURES</a> </li>
@@ -475,4 +475,8 @@
    
 
 
+{% endblock %}
+{% block javascripts %}
+    <!-- Custom JS -->
+    <script src="{{ asset('build/js/script.js') }}"></script>
 {% endblock %}
